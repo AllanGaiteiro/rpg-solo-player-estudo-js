@@ -1,0 +1,25 @@
+
+#gameOver{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 301px;
+    height: 200px;
+    background-color: blue;
+    margin: 0px;
+}
+#gameOver a{
+    display: table-cell;
+    width: 300px;
+    height: 200px;
+    text-decoration: none;
+    color: white;
+    font-size: 3rem;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#gameOver:hover{
+    cursor: pointer;
+    background-color: rgb(11, 11, 155);
+}

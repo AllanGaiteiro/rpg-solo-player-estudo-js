@@ -1,0 +1,17 @@
+Adicionar JSX a um Projeto
+Adicionar JSX a um projeto não requer ferramentas complicadas, como um empacotador ou um servidor de desenvolvimento. Basicamente, adicionar JSX é como adicionar um pré-processador CSS. O único requisito é possuir o Node.js instalado em seu computador.
+
+No terminal, vá até a pasta do seu projeto e cole esses dois comandos:
+
+Passo 1: Execute npm init -y (se falhar, aqui está uma correção)
+Passo 2: Execute npm install babel-cli@6 babel-preset-react-app@3
+Dica
+
+Estamos usando npm aqui somente para instalar o pré-processador do JSX; você não precisará dele para mais nada. Tanto o React quanto o código da aplicação pode continuar sem mudanças nas tags <script>.
+
+Parabéns! Você acabou de adicionar uma configuração JSX pronta para produção em seu projeto.
+
+Execute o Pré-processador JSX
+Crie uma pasta chamada src e execute no terminal esse comando:
+
+npx babel --watch src --out-dir . --presets react-app/prod
