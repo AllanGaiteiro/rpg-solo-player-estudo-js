@@ -23,17 +23,17 @@ var Nav = function (_React$Component) {
                 null,
                 React.createElement(
                     'a',
-                    { href: '#' },
+                    { href: '../index.html' },
                     'Inicio'
                 ),
                 React.createElement(
                     'a',
-                    { href: 'game/game.html' },
+                    { href: '../game/game.html' },
                     'Jogo'
                 ),
                 React.createElement(
                     'a',
-                    { href: 'sobre/sobre.html' },
+                    { href: 'sobre.html' },
                     'sobre'
                 )
             );
