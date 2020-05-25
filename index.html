@@ -4,27 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/nav.css">
     <title>Solo Player</title>
 
     <!--<script src="js/main.js"></script>--->
 </head>
 
 <body>
-    <div>
+    <div class="container">
         <header >
+            <h1 onclick="abrirJogo()">Jogo Solo Player</h1>
             <nav id="nav"></nav>
         </header>
         <main>
-            <h1>Solo Player</h1>
+            <h1  id="nameGame" onclick="abrirJogo()">Solo Player</h1>
+            <h2>Jogo criado com o intuido de aprender sobre o Desenvolvimento Web</h2>
         </main>
         <footer>
-            <p>Creado por Allan Gaiteiro</p>
+            <a href="https://github.com/AllanGaiteiro" target="-blank">Creado por Allan Gaiteiro</a>
         </footer>
     </div>
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
     <script src="js/nav.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

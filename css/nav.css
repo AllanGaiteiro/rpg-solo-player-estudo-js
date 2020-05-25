@@ -1,0 +1,36 @@
+
+nav{
+    margin-left: calc(100% - calc(150px *3));
+}
+header{
+     position: relative;
+}
+header h1 {
+    position: absolute;
+    width: 300px;
+    top:10px;
+    left: 0px;
+    font-size: 2rem;
+    padding: 0px;
+    margin: 0px;
+    color: rgb(3, 5, 27);
+    border: none;
+    cursor: pointer;
+}
+nav a {
+    width: 150px;
+    height: 60px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 2rem;
+    text-decoration: none;
+    background-color: rgb(8, 202, 228);
+    color: rgb(3, 5, 27);
+    transition: all 1s;
+}
+
+nav a:hover{
+    background-color: rgb(3, 5, 27);
+    color: rgb(8, 202, 228);
+}
