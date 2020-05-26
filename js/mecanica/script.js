@@ -19,14 +19,14 @@
     //var imagens = []
     var iniciar = false
     var scn = new Image()
-    scn.src = 'images/Sem título.png'
+    scn.src = '../images/Sem título.png'
     scn.width = 1650
     scn.height = 1650
 
     var bancoImg =
         [
-            'images/$Hero01.png', 'images/actor.png', 'images/actor.png',
-            'images/carros/11111111.png', 'images/carros/11111111.png', 'images/carros/11111111.png', 'images/carros/11111111.png', 'images/carros/11111111.png', 'images/carros/11111111.png',
+            '../images/$Hero01.png', '../images/actor.png', '../images/actor.png',
+            '../images/carros/11111111.png', '../images/carros/11111111.png', '../images/carros/11111111.png', '../images/carros/11111111.png', '../images/carros/11111111.png', '../images/carros/11111111.png',
         ]
     var character = [
         ////////pessoas

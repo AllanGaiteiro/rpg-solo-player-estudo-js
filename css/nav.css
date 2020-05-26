@@ -1,5 +1,5 @@
 
-nav{
+#navPrinc{
     margin-left: calc(100% - calc(150px *3));
 }
 header{
@@ -17,7 +17,7 @@ header h1 {
     border: none;
     cursor: pointer;
 }
-nav a {
+#navPrinc a {
     width: 150px;
     height: 60px;
     display: table-cell;
@@ -30,7 +30,7 @@ nav a {
     transition: all 1s;
 }
 
-nav a:hover{
+#navPrinc a:hover{
     background-color: rgb(3, 5, 27);
     color: rgb(8, 202, 228);
 }

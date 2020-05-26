@@ -5,14 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/nav.css">
-    <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="../css/sobre.css">
     <title>Sobre</title>
 </head>
 
 <body>
     <div id="container">
         <header id="cabecPrinc">
-            <nav id="nav"></nav>
+            <nav id="navPrinc">
+                <a href="../index.html">Inicio</a>
+                <a href="game.html">Jogo</a>
+                <a href="sobre.html">Sobre</a>
+            </nav>
         </header>
         <main id="conteudo">
             <header >
@@ -21,7 +25,7 @@
                         <li onclick="conteudo('item1')">Descrição</li>
                         <li onclick="conteudo('item2')">História</li>
                         <li onclick="conteudo('item3')">Mecânicas</li>
-                        <li>atualizações</li>
+                        <li>Atualizações</li>
                     </ul>
                 </nav>
             </header>
@@ -88,10 +92,8 @@
 
         </main>
     </div>
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-    <script src="js/navsobre.js"></script>
-    <script src="js/sobre.js"></script>
+
+    <script src="../js/sobre.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,3 @@
 function abrirJogo(){
-    window.open('game/game.html')
+    window.open('html/game.html')
 }
