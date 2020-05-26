@@ -1,3 +1,15 @@
+body{
+    margin: 0px;
+}
+
+
+canvas{
+
+    width: 960px;
+    height: 600px;    
+    margin-left: calc(50% - calc(600px/2));
+}
+
 
 #gameOver{
     position: absolute;

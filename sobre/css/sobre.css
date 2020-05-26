@@ -1,9 +1,13 @@
 body{
-    background-color: rgb(3, 5, 27);;
+    background-color: rgb(3, 5, 27);
 }
 
 #container{
     width: 100%;
+    background-image: url(../imagens/backSP.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #cabecPrinc{
@@ -12,29 +16,39 @@ body{
     background-color: rgb(8, 202, 228);
 }
 
-
 main {
-    
     width: 960px;
     margin: auto;
     margin-top: 400px;
-    background-color: white;
+    background-color: rgba(207, 207, 207, 0.699);
 }
+
 main header{
     background-color: rgb(216, 216, 216);
+    margin: auto;
+    
 }
-main header a{
+#navConteudo ul li{
     background-color: rgb(216, 216, 216);
     color: rgb(20, 20, 20);
+    display: table-cell;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
 }
-main header a:hover{
+#navConteudo ul li:hover{
     background-color: rgb(20, 20, 20);
     color: rgb(216, 216, 216);
 }
-article {
-    margin: 90px;
+section{
+    padding: 90px;
+}
+#item1,#item2,#item3{   
     padding: 40px;
     border-radius: 5px;
     background-color: rgb(216, 216, 216);
     box-shadow: 5px 5px 5px rgb(0,0,0,0.3);
+}
+#item2,#item3{
+    display: none;
 }

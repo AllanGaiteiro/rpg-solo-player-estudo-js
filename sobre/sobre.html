@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/navSobre.css">
+    <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="css/sobre.css">
     <title>Sobre</title>
 </head>
@@ -14,17 +14,19 @@
         <header id="cabecPrinc">
             <nav id="nav"></nav>
         </header>
-        <main>
+        <main id="conteudo">
             <header >
-                <nav>
-                    <a href="">Descrição</a>
-                    <a href="">História</a>
-                    <a href="">Mecânicas</a>
-                    <a href="">atualizações</a>
+                <nav id='navConteudo'>
+                    <ul>
+                        <li onclick="conteudo('item1')">Descrição</li>
+                        <li onclick="conteudo('item2')">História</li>
+                        <li onclick="conteudo('item3')">Mecânicas</li>
+                        <li>atualizações</li>
+                    </ul>
                 </nav>
             </header>
             <section>
-                <article>
+                <article id="item1">
                     <h2>Informação</h2>
                     <p><strong>Solo Player</strong> é um jogo de rpg com o intuito de me ajudar a aprender enquanto
                         programo
@@ -38,8 +40,8 @@
                     como na história
                     de <strong>Solo Leveling</strong>, sendo este o único ponto em comum com o jogo</p>
                 </article>
-                <article><strong>Em breve. </strong></article>
-                <article>
+                <article id="item2"><strong>Em breve. </strong></article>
+                <article id="item3">
                     <h2>Informação</h2>
                     <p>
                         Apesar da ideia de produzir um jogo, ainda me falta o conhecimento.
@@ -89,6 +91,7 @@
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
     <script src="js/navsobre.js"></script>
+    <script src="js/sobre.js"></script>
 </body>
 
 </html>

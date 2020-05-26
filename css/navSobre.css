@@ -1,6 +1,6 @@
 
 nav{
-    margin-left: calc(100% - calc(150px *4));
+    margin-left: calc(100% - calc(150px *3));
 }
 header{
      position: relative;
