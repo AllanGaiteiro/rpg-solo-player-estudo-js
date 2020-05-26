@@ -1,25 +1,21 @@
 
-var Sprite = function (nome, posX, posY, width, height, visible, haveImg, img,/*srcX,srcY,*/colid) {
+var Sprite = function (c) {
     // posisoes e larguras basicas //
-    this.nome = nome
-    this.posX = posX
-    this.posY = posY
-    this.sWidth = this.width = width
-    this.sHeight = this.height = height
-    this.visible = visible
+    this.nome = c.nome
+    this.posX = c.posX
+    this.posY = c.posY
+    this.sWidth = this.width = c.width
+    this.sHeight = this.height = c.height
+    this.visible = c.visible
     if (this.visible) {
-        this.haveImg = haveImg
-        this.img = img
+        this.haveImg = c.haveImg
+        this.img = c.img
         /*this.srcX = srcX
         this.srcY = srcY
         */
-
-
     }
-    this.colid = colid
-
+    this.colid = c.colid
 }
-
 /////////Proto tipes de Sprites
 Sprite.prototype.draw = function () {
     if (!this.visible) {
@@ -51,7 +47,6 @@ Sprite.prototype.move = function (scn) {
         this.posX -= this.speed
         this.srcY = this.height
     }
-
     this.posX = Math.max(0, Math.min(scn.width - this.width, this.posX))
     this.posY = Math.max(0, Math.min(scn.height - this.height, this.posY))
     //} else {   
@@ -67,7 +62,6 @@ Sprite.prototype.animation = function () {
                     this.countAnim = 0
                 }
                 this.srcX = Math.floor(this.countAnim / 8) * this.width
-
             }
         }
     }
@@ -84,28 +78,22 @@ Sprite.prototype.centerX = function () {
 Sprite.prototype.centerY = function () {
     return this.posY + this.halfHeight()
 }
-
 //////// atores //////////////////
 Sprite.prototype.movCam = function (cam, map) {
-
     if (this.control) {
-
         if (this.posX < cam.frontLeft()) {
-
             cam.posX = this.posX - (cam.width * 0.3)
         }
         if (this.posX + this.width > cam.frontRight()) {
             cam.posX = this.posX + this.width - (cam.width * 0.7)
         }
         if (this.posY < cam.frontTop()) {
-
             cam.posY = this.posY - (cam.height * 0.3)
         }
         if (this.posY + this.height > cam.frontBottom()) {
             cam.posY = this.posY + this.height - (cam.height * 0.7)
         }
     }
-
     cam.posX = Math.max(0, Math.min(map.width - cam.width, cam.posX))
     cam.posY = Math.max(0, Math.min(map.height - cam.height, cam.posY))
     /*        }
@@ -126,64 +114,50 @@ Sprite.prototype.movCam = function (cam, map) {
         }
     */
 }
-
-var Actores = function (nome, posX, posY, width, height, visible, haveImg, img,/*srcX,srcY,*/control, colid, animar/*,vida,dano*/) {
-    Sprite.call(this, nome, posX, posY, width, height, visible, haveImg, img,/*srcX,srcY,*/colid)
-    this.control = control
+var Actores = function (c) {
+    Sprite.call(this, c)
+    this.control = c.control
     this.movCima = this.movBaixo = this.movEsq = this.movDir = false
     this.speed = 2
-    this.animar = animar
+    this.animar = c.animar
     this.heart = 100
-    
+
 }
 Actores.prototype = Object.create(Sprite.prototype)
 
 Actores.prototype.atributos = function () {
-    
+
     this.energ
     this.ataq
     this.def
     this.mag_Ataq
-    this.mag_Def  
+    this.mag_Def
 }
-Actores.prototype.vida = function(dano){
-    this.heart +=  -dano/10
+Actores.prototype.vida = function (dano) {
+    this.heart += -dano / 10
 }
-Actores.prototype.barraLife = function(ctx){
+Actores.prototype.barraLife = function (ctx) {
     ctx.fillStyle = 'black'
-    ctx.fillRect(8,8,104,14) 
+    ctx.fillRect(8, 8, 104, 14)
     ctx.fillStyle = 'red'
-    ctx.fillRect(10,10,this.heart,10)           
+    ctx.fillRect(10, 10, this.heart, 10)
 }
-
-
 /////////////Objetos /////////////////////
-
-var Objeto = function (nome, posX, posY, width, height, visible, haveImg, img,/*srcX,srcY,*/colid, animar) {
-    Sprite.call(this, nome, posX, posY, width, height, visible, haveImg, img,/*srcX,srcY,*/colid)
+var Objeto = function (c) {
+    Sprite.call(this, c)
 }
 Objeto.prototype = Object.create(Sprite.prototype)
-
-
-
 /////////// Carrros /////
-
-
-var Carros = function (nome, posX, posY, width, height, visible, haveImg, img,/*srcX,srcY,*/control, colid, animar/*,vida,dano*/) {
-
-    Sprite.call(this, nome, posX, posY, width, height, visible, haveImg, img,/*srcX,srcY,*/colid)
-
+var Carros = function (c) {
+    Sprite.call(this, c)
     this.vX = this.vY = this.numbAutomove = this.event1 = 0
-    this.control = control
+    this.control = c.control
     this.movCima = this.movBaixo = this.movEsq = this.movDir = false
     this.speed = 2
-    this.animar = animar
+    this.animar = c.animar
 }
 Carros.prototype = Object.create(Sprite.prototype)
-
 Carros.prototype.event_1 = function (p1, p2, p3, p4) {
-
-
     this.p1 = p1
     this.p2 = p2 //x170
     this.p3 = p3 //y1060
@@ -252,9 +226,7 @@ Carros.prototype.event_1 = function (p1, p2, p3, p4) {
                 this.movEsq = true
             }
         }
-
     }
     //ev.posX = Math.max(100,Math.min(1000-ev.width,ev.posX))
     //ev.posY = Math.max(100,Math.min(1000-ev.height,ev.posY))
-
 }

@@ -25,8 +25,8 @@
 
     var bancoImg =
         [
-            '../images/$Hero01.png', '../images/actor.png', '../images/actor.png',
-            '../images/carros/11111111.png', '../images/carros/11111111.png', '../images/carros/11111111.png', '../images/carros/11111111.png', '../images/carros/11111111.png', '../images/carros/11111111.png',
+            '$Hero01.png', 'actor.png', 'actor.png',
+            '11111111.png', '11111111.png', '11111111.png', '11111111.png', '11111111.png', '11111111.png',
         ]
     var character = [
         ////////pessoas
@@ -84,33 +84,29 @@
         eventos(carros)
         //gravity(cnv,bola)
         colizao(sprites)// influenciado e influenciador  
-
     }
-
-
     function carregar() {
         for (var i in bancoImg) {
-            let imag = bancoImg[i]
+            let srcImg = '../images/charateres/' +  bancoImg[i]
             let c = character[i]
+            //// criando img do obeto ou personagem
             var img = new Image()
-            img.src = imag
+            img.src = srcImg
             c.img = img
             if (c.actor) {
-                var char = new Actores(c.nome, c.posX, c.posY, c.width, c.height, c.visible, c.haveImg, c.img,/*c.srcX,c.srcY,*/c.control, c.colid, c.animar)
+                var char = new Actores(c)
                 actor.push(char)
                 sprites.push(char)
-
             } else if (c.objet) {
-                var char = new Objeto(c.nome, c.posX, c.posY, c.width, c.height, c.visible, c.haveImg, c.img,/*c.srcX,c.srcY,*/c.colid, c.animar)
+                var char = new Objeto(c)
                 objet.push(char)
                 sprites.push(char)
-
             } else if (c.auto) {
-                var char = new Carros(c.nome, c.posX, c.posY, c.width, c.height, c.visible, c.haveImg, c.img,/*c.srcX,c.srcY,*/c.control, c.colid, c.animar)
+                var char = new Carros(c)
                 carros.push(char)
                 sprites.push(char)
-
             }
+
             if (c.colid) {
                 blok.push(char)
             } else {
@@ -153,14 +149,12 @@
         }
     })
 
-    function desenhar() {
-
+    function renderizar() {
         ctx.save()
         ctx.translate(-cam.posX, - cam.posY)
         ctx.clearRect(0, 0, cnv.width, cnv.height)
         //ctx.drawImage(scn,0,0,1750,1750,0,0,1750,1750)
         ctx.drawImage(map.img, 0, 0, map.width, map.height, map.posX, map.posY, map.width, map.height)
-
         for (var i in sprites) {
             let spr = sprites[i]
 
@@ -180,7 +174,7 @@
         if (actor[0].heart <= 0) {
             gameOver()
         } else {
-            desenhar()
+            renderizar()
             atualizar()
             requestAnimationFrame(loop, cnv)
         }

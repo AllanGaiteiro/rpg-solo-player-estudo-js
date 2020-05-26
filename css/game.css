@@ -42,16 +42,18 @@ main{
     display: table-cell;
     color: rgba(3, 5, 27, 0.685);
     text-decoration: none;
-    font-size: 4rem;
+    font-size: 5rem;
     vertical-align: middle;
     text-align: center;
     margin: 0px;
     padding: 0px;
     transition: all 1s;
+    border: 4px solid  rgb(3, 5, 27);
 }
 
 #gameOver2 a:hover{
     cursor: pointer;
-    background-color: rgba(3, 5, 27, 0.685);
+    background-color: rgb(3, 5, 27);
+    border: 4px solid  rgb(8, 202, 228);
     color: rgb(8, 202, 228);
 }
