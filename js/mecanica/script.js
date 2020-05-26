@@ -175,24 +175,13 @@
         ctx.restore()
         sprites[0].barraLife(ctx)
     }
-
-    function gameOver() {
-        ctx.fillStyle = 'black'
-        ctx.fillRect(0, 0, cnv.width, cnv.height)
-        var fim = document.createElement('div')
-        fim.setAttribute('id','gameOver')
-        var body = document.querySelector('body')
-        body.style.position='relative'
-        body.appendChild(fim) 
-        fim.innerHTML = `<a href="../index.html">Game Over<a>`
-    }
     function loop() {
+        //actor[0].heart = 0
         if (actor[0].heart <= 0) {
             gameOver()
         } else {
             desenhar()
             atualizar()
-
             requestAnimationFrame(loop, cnv)
         }
     }

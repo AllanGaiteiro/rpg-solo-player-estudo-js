@@ -50,7 +50,7 @@ main {
 section{
     padding: 90px;
 }
-#item1,#item2,#item3{   
+#item1,#item2,#item3,#item4{   
     padding: 40px;
     border-radius: 5px;
     background-color: rgb(216, 216, 216);

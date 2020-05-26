@@ -1,4 +1,8 @@
+:root{
+    --heitMain: 600px;
+}
 body{
+
     margin: 0px;
 }
 
@@ -7,31 +11,47 @@ canvas{
 
     width: 960px;
     height: 600px;    
+}
+main{
+    position: relative;
+    margin: 0px;
     margin-left: calc(50% - calc(600px/2));
 }
 
-
 #gameOver{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 301px;
-    height: 200px;
-    background-color: blue;
+    top: 0%;
+    left: 0%;
+    width: 960px;
+    height: 600px; 
+    background-color: rgba(3, 5, 27, 0.685);
     margin: 0px;
 }
-#gameOver a{
+#gameOver2{
+    position: absolute;
+    top: 200px;
+    left: 350px;
+    width: 400px;
+    height: 200px; 
+    background-color: rgb(8, 202, 228);
+    margin: 0px;
+}
+#gameOver2 a{
+    width: 400px;
+    height: 200px; 
     display: table-cell;
-    width: 300px;
-    height: 200px;
+    color: rgba(3, 5, 27, 0.685);
     text-decoration: none;
-    color: white;
-    font-size: 3rem;
+    font-size: 4rem;
     vertical-align: middle;
     text-align: center;
+    margin: 0px;
+    padding: 0px;
+    transition: all 1s;
 }
 
-#gameOver:hover{
+#gameOver2 a:hover{
     cursor: pointer;
-    background-color: rgb(11, 11, 155);
+    background-color: rgba(3, 5, 27, 0.685);
+    color: rgb(8, 202, 228);
 }
