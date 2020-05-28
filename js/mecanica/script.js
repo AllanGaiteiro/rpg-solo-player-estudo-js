@@ -16,18 +16,24 @@
     var objet = []
     var carros = []
     var mapas = []
-    //var imagens = []
-    var iniciar = false
-    var scn = new Image()
-    scn.src = '../images/Sem título.png'
-    scn.width = 1650
-    scn.height = 1650
-
+    var mapAtual
+    var cordX
+    var cordY
+    /*    var scn = new Image()
+        scn.src = '../images/Sem título.png'
+        scn.width = 1650
+        scn.height = 1650
+    */
     var bancoImg =
         [
             '$Hero01.png', 'actor.png', 'actor.png',
             '11111111.png', '11111111.png', '11111111.png', '11111111.png', '11111111.png', '11111111.png',
         ]
+
+    var senario = [
+        { nome: 'centroCity', src: 'Senario1.png', cord: { x: 0, y: 0 }, width: 1650, height: 1650, eventos: { event: '', event2: '' } },
+        { nome: 'centroCity', src: 'Senario1.png', cord: { x: 1, y: 1 }, width: 1650, height: 1650, eventos: { event: '', event2: '' } }
+    ]
     var character = [
         ////////pessoas
         { nome: 'alex', actor: true, objet: false, auto: false, posX: 100, posY: 100, width: 180 / 3, height: 240 / 4, visible: true, haveImg: true, img: '', srcX: 0, srcY: 0, control: true, colid: true, animar: true },/// principal
@@ -47,16 +53,8 @@
     /// varivais de movimentos
     var w = 87, s = 83, a = 65, d = 68
     var cima = 38, baixo = 40, esq = 37, dir = 39
+    /////////////////////
 
-    var map = {
-        nome: '',
-        posX: 0,
-        posY: 0,
-        width: scn.width,
-        height: scn.height,
-        img: scn,
-    }
-    mapas.push(map)
     var cam = {
         posX: 0,
         posY: 0,
@@ -78,16 +76,48 @@
     }
     ///// centralizar a camera 
     function atualizar() {
-
-        sprites[0].movCam(cam, map)
-        sprites[0].move(scn)
-        eventos(carros)
+        mapAtual = atualizarMap()
+        sprites[0].movCam(cam, mapAtual)
+        sprites[0].move(mapAtual)
+        eventos(carros, mapas, mapAtual)
         //gravity(cnv,bola)
         colizao(sprites)// influenciado e influenciador  
     }
+
+    function atualizarMap() {
+        //alert(cordX)
+        for (var i in mapas) {
+            //alert(mapas[i].src)
+            let s = mapas[i]
+
+            //alert(scn.cord.x)
+            if (s.cord.x == cordX && s.cord.y == cordY) {
+                //alert(s.width)
+                return s
+            }
+        }
+    }
+
+
+
+
     function carregar() {
+        cordX = 0
+        cordY = 0
+        ///// criando image senario
+        for (var i in senario) {
+            let scn = senario[i]
+            //alert(scn.cord.x)
+            //alert('../images/' + scn.src)
+            var img = new Image()
+            img.src = '../images/' + scn.src
+            //alert(img.src)
+            var mapa = new Mapas(img, scn)
+            mapas.push(mapa)
+        }
+
         for (var i in bancoImg) {
-            let srcImg = '../images/charateres/' +  bancoImg[i]
+            let srcImg = '../images/charateres/' + bancoImg[i]
             let c = character[i]
             //// criando img do obeto ou personagem
             var img = new Image()
@@ -98,7 +128,7 @@
                 actor.push(char)
                 sprites.push(char)
             } else if (c.objet) {
-                var char = new Objeto(c)
+                var char = new Objetos(c)
                 objet.push(char)
                 sprites.push(char)
             } else if (c.auto) {
@@ -106,12 +136,14 @@
                 carros.push(char)
                 sprites.push(char)
             }
-
+            /// criar colizoes
             if (c.colid) {
                 blok.push(char)
             } else {
 
             }
+            //// eventos
+
         }
         loop()
     }
@@ -154,12 +186,12 @@
         ctx.translate(-cam.posX, - cam.posY)
         ctx.clearRect(0, 0, cnv.width, cnv.height)
         //ctx.drawImage(scn,0,0,1750,1750,0,0,1750,1750)
-        ctx.drawImage(map.img, 0, 0, map.width, map.height, map.posX, map.posY, map.width, map.height)
+        ctx.drawImage(mapAtual.img, 0, 0, mapAtual.width, mapAtual.height, mapAtual.posX, mapAtual.posY, mapAtual.width, mapAtual.height)
         for (var i in sprites) {
             let spr = sprites[i]
 
             if (spr.visible) {
-                spr.move(scn)
+                spr.move(mapAtual)
                 spr.draw(ctx)
 
             } else {
@@ -174,8 +206,10 @@
         if (actor[0].heart <= 0) {
             gameOver()
         } else {
-            renderizar()
+
             atualizar()
+            renderizar()
+
             requestAnimationFrame(loop, cnv)
         }
     }

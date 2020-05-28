@@ -29,7 +29,7 @@ Sprite.prototype.draw = function () {
         }
     }
 }
-Sprite.prototype.move = function (scn) {
+Sprite.prototype.move = function (mapAtual) {
     //if (this.control) {
     if (this.movCima) {
         this.posY -= this.speed
@@ -47,8 +47,8 @@ Sprite.prototype.move = function (scn) {
         this.posX -= this.speed
         this.srcY = this.height
     }
-    this.posX = Math.max(0, Math.min(scn.width - this.width, this.posX))
-    this.posY = Math.max(0, Math.min(scn.height - this.height, this.posY))
+    this.posX = Math.max(0, Math.min(mapAtual.width - this.width, this.posX))
+    this.posY = Math.max(0, Math.min(mapAtual.height - this.height, this.posY))
     //} else {   
     //}
 }
@@ -79,7 +79,7 @@ Sprite.prototype.centerY = function () {
     return this.posY + this.halfHeight()
 }
 //////// atores //////////////////
-Sprite.prototype.movCam = function (cam, map) {
+Sprite.prototype.movCam = function (cam, mapAtual) {
     if (this.control) {
         if (this.posX < cam.frontLeft()) {
             cam.posX = this.posX - (cam.width * 0.3)
@@ -94,8 +94,8 @@ Sprite.prototype.movCam = function (cam, map) {
             cam.posY = this.posY + this.height - (cam.height * 0.7)
         }
     }
-    cam.posX = Math.max(0, Math.min(map.width - cam.width, cam.posX))
-    cam.posY = Math.max(0, Math.min(map.height - cam.height, cam.posY))
+    cam.posX = Math.max(0, Math.min(mapAtual.width - cam.width, cam.posX))
+    cam.posY = Math.max(0, Math.min(mapAtual.height - cam.height, cam.posY))
     /*        }
         } else {
             
@@ -143,10 +143,10 @@ Actores.prototype.barraLife = function (ctx) {
     ctx.fillRect(10, 10, this.heart, 10)
 }
 /////////////Objetos /////////////////////
-var Objeto = function (c) {
+var Objetos = function (c) {
     Sprite.call(this, c)
 }
-Objeto.prototype = Object.create(Sprite.prototype)
+Objetos.prototype = Object.create(Sprite.prototype)
 /////////// Carrros /////
 var Carros = function (c) {
     Sprite.call(this, c)
@@ -227,6 +227,18 @@ Carros.prototype.event_1 = function (p1, p2, p3, p4) {
             }
         }
     }
+
+
+
     //ev.posX = Math.max(100,Math.min(1000-ev.width,ev.posX))
     //ev.posY = Math.max(100,Math.min(1000-ev.height,ev.posY))
+}
+var Mapas = function (img, scn) {
+    this.nome = scn.nome
+    this.cord = {x: scn.cord.x, y:scn.cord.y}
+    this.img = img
+    this.width = scn.width
+    this.height = scn.height
+    this.posX = this.posY = 0
+    this.eventos = scn.eventos
 }

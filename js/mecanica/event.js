@@ -1,8 +1,17 @@
 ///// ainda sem eventos //// 
 
 
-function eventos(carros) {
-    event_Trafego_01(carros)
+
+function eventos(carros,mapas,mapAtual) {
+
+    event_Trafego(carros,mapas,mapAtual)
+}
+
+function  event_Trafego(carros,mapas,mapAtual){
+    var mp = mapas[0]
+    if(mapAtual.nome == mp.nome){
+        return event_Trafego_01(carros)
+    }
 }
 
 function event_Trafego_01(carros) {
