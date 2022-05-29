@@ -1,35 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/game.css">
     <link rel="stylesheet" href="css/nav.css">
-    <title>Solo Player</title>
-
-    <!--<script src="js/main.js"></script>--->
+    <title>Game</title>
 </head>
-
-<body>
-    <div class="container">
-        <header >
-            <h1 onclick="abrirJogo()">Jogo Solo Player</h1>
+<body style="margin: 0%;padding: 0%;">
+    <div id="container">
+        <header><!---
             <nav id="navPrinc">
-                <a href="index.html">Inicio</a>
-                <a href="html/game.html">Jogo</a>
-                <a href="html/sobre.html">Sobre</a>
-            </nav>
+                <a href="../index.html">Inicio</a>
+                <a href="game.html">Jogo</a>
+                <a href="sobre.html">Sobre</a>
+            </nav>-->
         </header>
         <main>
-            <h1  id="nameGame" onclick="abrirJogo()">Solo Player</h1>
-            <h2>Jogo criado com o intuido de aprender sobre o Desenvolvimento Web</h2>
+            <canvas></canvas>
         </main>
-        <footer>
-            <a href="https://github.com/AllanGaiteiro" target="-blank">Creado por Allan Gaiteiro</a>
-        </footer>
+        
     </div>
-    <script src="js/index.js"></script>
+    
+    <script src="js/mecanica/event.js"></script>
+    <script src="js/mecanica/colide.js"></script>
+    <script src="js/mecanica/sprite.js"></script>
+    <script src="js/mecanica/script.js"></script>
 </body>
-
 </html>
